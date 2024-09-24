@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load pagination %}
+
+{% block title %}
+    Listagem de Livros | {{ block.super }}
+{% endblock %}
+
+{% block container %}
+
+<div class="page-header">
+    <h1>Livros</h1>
+    <nav class="navbar navbar-light bg-light" style="margin-top: 1em;">
+        <h5>Procure o seu livro aqui</h5>
+        <form class="form-inline" method="get" action=".">
+            <input class="form-control mr-sm-2" type="search" placeholder="Titulo" 
+            name="title" aria-label="Search" value="{{ request.GET.title }}">
+            <input class="form-control mr-sm-2" type="search" placeholder="Author"
+            name="author" aria-label="Search" value="{{ request.GET.author }}">
+            <input class="form-control mr-sm-2" type="search" placeholder="Categoria"
+            name="category" aria-label="Search" value="{{ request.GET.category }}">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+</div>
+
+<div class="row">
+    {% for book in books %}
+        {% include "catalog/_book.html" %}
+    {% endfor %}
+</div>
+{% pagination request paginator page_obj %}
+{% endblock %}

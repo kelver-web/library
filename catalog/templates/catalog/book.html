@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ product }} | {{ block.super }}
+{% endblock %}
+
+{% block container %}
+<div class="page-header">
+  <h1>{{ book }}</h1>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+      <a href="#" class="thumbnail">
+          <img src="{{ book.cover_image }}" alt="" />
+      </a>
+  </div>
+  <div class="col-sm-8">
+      <p class="text-right">
+          <a href="{% url 'checkout:create_cartitem' book.slug %}" class="btn btn-success">Adicionar ao Carrinho</a>
+      </p>
+      <h5>Editora: {{ book.publisher }}</h5>
+      <h5>Número de páginas: {{ book.number_of_pages }}</h5>
+      <h5>Sinópse:</h5>
+      <p>
+        {{ book.synopsis|linebreaks }}
+      </p>
+  </div>
+</div>
+{% endblock %}

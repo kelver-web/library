@@ -1,0 +1,18 @@
+Olá, tudo bem?
+
+Muito obrigado por enviar o seu contato.
+
+Esses foram os dados que você nos forneceu
+no seu contato:
+
+Nome: {{ name }}
+E-mail: {{ email }}
+Mensagem: {{ message }}
+
+Em até 48 horas úteis nossa equipe entrará
+em contato com você para concluirmos a sua
+solicitação.
+
+Atenciosamente,
+--
+Equipe.

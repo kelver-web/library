@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Minha Conta{% endblock %}
+
+{% block container %}
+<div class="margin-top">
+    <ol class="breadcrumb">
+        <li><a href="{% url 'index' %}">Início</a></li>
+        <li class="active">Minha Conta</li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="list-group">
+          <a href="{% url 'accounts:index' %}" class="list-group-item active">Minha Conta</a>
+          <a href="{% url 'accounts:update_user' %}" class="list-group-item">Alterar Dados</a>
+          <a href="{% url 'accounts:update_password' %}" class="list-group-item">Alterar Senha</a>
+          <a href="{% url 'checkout:order_list' %}" class="list-group-item">Meus Pedidos</a>
+        </div>
+    </div>
+    <div class="col-md-8">
+        {% block container_accounts %}
+            <h2>Bem vindo {{ user }}</h2>
+
+            {% block welcome %}
+            <div>
+                <p>
+                    Seja bem-vindo à sua conta. Aqui você pode gerenciar suas informações pessoais, alterar sua senha, e verificar seus pedidos.
+                </p>
+            </div>
+        {% endblock %}
+        {% endblock %}
+        
+        
+    </div>
+</div>
+{% endblock %}

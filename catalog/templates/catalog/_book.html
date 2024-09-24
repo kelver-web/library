@@ -1,0 +1,16 @@
+{% block container %}
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <a href="{{ book.get_absolute_url }}">
+                <img src="{{ book.cover_image }}" alt="" />
+            </a>
+            <div class="caption">
+                <h3>{{ book }}</h3>
+                <h5>Autor: {{ book.author }}</h5>
+                <h5>Data de publicação: {{ book.publication_date }}</h5>
+                <h5>Preço R$ {{ book.price }}</h5>
+                <p><a href="{{ book.get_absolute_url }}" class="btn btn-success btn-sm" role="button">Detalhes</a> <a href="{% url 'checkout:create_cartitem' book.slug %}" class="btn btn-default btn-sm" role="button">Adicionar</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "accounts/index.html" %}
+
+{% load pagination %}
+
+{% block title %}
+    Meus Pedidos
+{% endblock %}
+
+{% block container_accounts %}
+<div style="display: flex; align-items: baseline; justify-content: space-between;">
+    <div>
+        <h2>Meus Pedidos</h2>
+    </div>
+    <div>
+        <a href="{% url 'checkout:exportar_pedidos_excel' %}" class="btn btn-primary btn-sm" style="margin-bottom: 1em;">
+            Exportar
+        </a>
+    </div>
+</div>
+<table class="table table-striped table-bordered table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>
+                Nº
+            </th>
+            <th>
+                Livros
+            </th>
+            <th>
+                Situação
+            </th>
+            <th>
+                Data
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in object_list %}
+        <tr>
+            <th>
+                <a href="{% url 'checkout:order_detail' order.pk %}">{{ order.pk }}</a>
+            </th>
+            <td>
+                {% for book in order.books %}
+                    {{ book.title }}{% if not forloop.last %}<br />{% endif %}
+                {% endfor %}
+            </td>
+            <td>
+                {{ order.get_status_display }}
+            </td>
+            <td>
+                {{ order.created|date:"d/m/Y" }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% block welcome %}
+{% endblock %}
+
+{% pagination request paginator page_obj %}
+{% endblock %}
