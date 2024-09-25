@@ -23,3 +23,14 @@ Instalção do projeto:
    pip install -r requirements.txt
    '''
 6. rode com python ou python3 manage.py runserver
+7. crie as tabelas necessárias
+   '''
+   python3 ou python manage.py migrate
+   '''
+8. crie um super usuário
+   '''
+   python3 ou python manage.py createsuperuser
+   '''
+9. Crie suas categorias
+10. Adicione os livros
+11. no campo de imagem da tabela de Books pode adicionar o url do caminho da imagem.
