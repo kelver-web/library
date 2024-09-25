@@ -5,17 +5,21 @@ Instalção do projeto:
    '''
    git clone https://github.com/kelver-web/library.git
    '''
+2. entre na pasta library
+   '''
+   cd library
+   '''
 3. Crie um virtualenv com python 3.8
    '''
    python -m venv venv ou python3 -m venv venv
    '''
-5. Ative o virtualenv
+4. Ative o virtualenv
    '''
    source venv/bin/activate para sistemas Unix
    venv/Scripts/activate    para sistemas Windows
    '''
-7. Instale as dependências
+5. Instale as dependências
    '''
    pip install -r requirements-dev.txt
    '''
-9. rode com python ou python3 manage.py runserver
+6. rode com python ou python3 manage.py runserver
