@@ -20,6 +20,6 @@ Instalção do projeto:
    '''
 5. Instale as dependências
    '''
-   pip install -r requirements-dev.txt
+   pip install -r requirements.txt
    '''
 6. rode com python ou python3 manage.py runserver
